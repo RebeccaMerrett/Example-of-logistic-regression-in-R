@@ -10,8 +10,8 @@ head(AmericanCommunitySurveyNY10)
 #Check missing values and fill in with the mean.
 #Can also fill in with mode (most frequent value), or drop column if nearly all values missing.
 #Or use other values in record to infer the missing value.
-#For example, in Excel can look at occupation in a record with missing income value,with a table of income averages for different occupations to infer the missing values,
-#Using match or vlookup to insert the missing value from the occupation average income table, then set cells as being either above or below $150k.
+#For example, in Excel can look at occupation in a record with missing income value, with a table of income averages for different occupations to infer the missing values.
+#Then can match or vlookup to insert the missing value from the occupation average income table, then set cells as being either above or below $150k.
 sapply(AmericanCommunitySurveyNY10,function(x) sum(is.na(x)))
 AmericanCommunitySurveyNY10$NumChildren[is.na(AmericanCommunitySurveyNY10$NumChildren)] <- mean(AmericanCommunitySurveyNY10$NumChildren, na.rm=TRUE)
 AmericanCommunitySurveyNY10$NumVehicles[is.na(AmericanCommunitySurveyNY10$NumVehicles)] <- mean(AmericanCommunitySurveyNY10$NumVehicles, na.rm=TRUE)
