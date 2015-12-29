@@ -1,4 +1,4 @@
-Set working directory path to whatever folder you like.
+#Set working directory path to whatever folder you like.
 setwd("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace")
 getwd()
 
