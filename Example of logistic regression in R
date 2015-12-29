@@ -1,12 +1,14 @@
 Set working directory path to whatever folder you like.
 setwd("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace")
 getwd()
+
 AmericanCommunitySurveyNY10 <- read.table("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace\\acs_ny_missing.csv", sep=",", header=TRUE)
 head(AmericanCommunitySurveyNY10)
 #Want predict a categorical true/false type of response for logistic regression.
 #So add income column to FamilyIncome being either true as earning more than $150k or false as earning less than $150k.
 AmericanCommunitySurveyNY10$Income <- with(AmericanCommunitySurveyNY10,FamilyIncome>=150000)
 head(AmericanCommunitySurveyNY10)
+
 #Check missing values and fill in with the mean.
 #Can also fill in with mode (most frequent value), or drop column if nearly all values missing.
 #Or use other values in record to infer the missing value.
@@ -15,6 +17,7 @@ head(AmericanCommunitySurveyNY10)
 sapply(AmericanCommunitySurveyNY10,function(x) sum(is.na(x)))
 AmericanCommunitySurveyNY10$NumChildren[is.na(AmericanCommunitySurveyNY10$NumChildren)] <- mean(AmericanCommunitySurveyNY10$NumChildren, na.rm=TRUE)
 AmericanCommunitySurveyNY10$NumVehicles[is.na(AmericanCommunitySurveyNY10$NumVehicles)] <- mean(AmericanCommunitySurveyNY10$NumVehicles, na.rm=TRUE)
+
 #Split data into train (70%) and test (30%), and build the model on the training set.
 AmericanCommunitySurveyNY10Split <- sort(sample(nrow(AmericanCommunitySurveyNY10),nrow(AmericanCommunitySurveyNY10)*.7))
 AmericanCommunitySurveyNY10Train <- AmericanCommunitySurveyNY10[AmericanCommunitySurveyNY10Split,]
@@ -22,6 +25,7 @@ AmericanCommunitySurveyNY10Test <- AmericanCommunitySurveyNY10[-AmericanCommunit
 IncomeAboveBelow150K <- glm(Income ~ HouseCosts + NumWorkers + OwnRent + NumBedrooms + FamilyType +
 NumChildren, data=AmericanCommunitySurveyNY10Train, family=binomial(link="logit"))
 summary(IncomeAboveBelow150K)
+
 #Get the predicted results on test set, and plot receiver operating characteristic at a threshold with a calculated area under the curve.
 #ROC is true positive rate against false positive rate, with a high AUC meaning high precision (low false positive) and high recall (low false negative).
 #Minus response columns Income
