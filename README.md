@@ -2,6 +2,7 @@
 <i>#Set working directory path to whatever folder you like. Use double backslash.</i><br>
 setwd("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace")<br>
 getwd()<br>
+<br>
 AmericanCommunitySurveyNY10 <- read.table("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace\\acs_ny_missing.csv", sep=",", header=TRUE)<br>
 head(AmericanCommunitySurveyNY10)<br>
 <i>#Want predict a categorical true/false type of response for logistic regression.</i><br>
