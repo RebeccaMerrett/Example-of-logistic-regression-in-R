@@ -1,7 +1,10 @@
 # Example of logistic regression in R
-<i>#Set working directory path to whatever folder you like. Use double backslash.</i><br>
-setwd("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace")<br>
-getwd()<br>
+```R
+#Set working directory path to whatever folder you like. Use double backslash.
+setwd("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace")
+getwd()
+```
+
 <br>
 AmericanCommunitySurveyNY10 <- read.table("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace\\acs_ny_missing.csv", sep=",", header=TRUE)<br>
 head(AmericanCommunitySurveyNY10)<br>
