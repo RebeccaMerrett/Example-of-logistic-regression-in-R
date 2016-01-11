@@ -3,7 +3,6 @@
 #Set working directory path to whatever folder you like. Use double backslash.
 setwd("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace")
 getwd()
-```
 
 <br>
 AmericanCommunitySurveyNY10 <- read.table("C:\\Users\\Rebecca Merrett\\Documents\\r-workspace\\RebeccaSpace\\acs_ny_missing.csv", sep=",", header=TRUE)<br>
@@ -45,3 +44,4 @@ ROC <- performance(pred, "tpr", "fpr")<br>
 plot(ROC)<br>
 AUC <- performance(pred, "auc")@y.values[[1]]<br>
 AUC
+```
